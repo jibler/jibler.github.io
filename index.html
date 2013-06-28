@@ -1,16 +1,18 @@
 <head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script src='foxglove.js'></script>
 </head>
+
 <body>
+
   <button id='generate'>Generate!</button>
+  <span id='results'><span>
+
   <script>
-    var fg = new Foxglove(),
-        button = document.getElementById('generate');
-
-    button.onclick = function(e) {
-      var el = e.target;
-      console.log(fg);
-    }
-
+    var fg = new Foxglove();
+    $('#generate').click(function(){
+      fg.generateAndAppend();
+    });
   </script>
+
 </body>
