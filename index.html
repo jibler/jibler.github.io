@@ -1,0 +1,16 @@
+<head>
+  <script src='foxglove.js'></script>
+</head>
+<body>
+  <button id='generate'>Generate!</button>
+  <script>
+    var fg = new Foxglove(),
+        button = document.getElementById('generate');
+
+    button.onclick = function(e) {
+      var el = e.target;
+      console.log(fg);
+    }
+
+  </script>
+</body>
