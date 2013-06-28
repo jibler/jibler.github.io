@@ -4,23 +4,36 @@ This pulls two words from the dictionary api, smashes them together
 class Foxglove
 
 
+  ###
+  Generates the URL we use to grab data from our dictionary api
+
+  @return [String] A URL string
+  ###
   generateAPIUrl: ->
-    apiKey = '8f99033d4a9c15332f00c0e62ae083bbf4c9c998a9c928de2'
-    limit = 2
-    minLength = 2
-    maxLength = 6
-    url = "http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=#{minLength}&maxLength=#{maxLength}&limit=#{limit}&api_key=#{apiKey}"
+    params =
+      api_key: '8f99033d4a9c15332f00c0e62ae083bbf4c9c998a9c928de2'
+      limit: 2
+      minLength: 2
+      maxLength: 6
+      hasDictionaryDef: true
+      includePartOfSpeech: 'noun'
+      minCorpusCount: 0
+      maxCorpusCount: -1
+      minDictionaryCount: 1
+      maxDictionaryCount: -1
 
+    string = ''
 
+    for own k, v of params
+      string += "&#{k}=#{v}"
 
-  generateAndAppend: ->
-    @generate()
+    "http://api.wordnik.com/v4/words.json/randomWords?#{string}"
 
 
   ###
   Use the dictionary API to get two nouns and smash them together
   ###
-  generate: ->
+  generateAndAppend: ->
     $.ajax
       url: @generateAPIUrl()
       type: 'GET'
@@ -29,22 +42,40 @@ class Foxglove
 
   success: (r) =>
     nouns = @pullDataFromResponse r
-    @nouns = @smash nouns
-    @appendToDocument @nouns
+    @insertWordsIntoDocument nouns
 
 
-  appendToDocument: (nouns) ->
-    span = $('#results')
-    span.html nouns
+  ###
+  Takes two words and puts them into the document
+  ###
+  insertWordsIntoDocument: (nouns) ->
+    span1 = $('<span id="first-word">')
+    span2 = $('<span id="second-word">')
+
+    span1.html nouns[0]
+    span2.html nouns[1]
+
+    body = $('body')
+    body.append span1
+    body.append span2
 
 
+  ###
+  @param [Object] A JSON response object from the dictionary API
+
+  @return [Array] Two words pulled from the response object
+  ###
   pullDataFromResponse: (r) ->
-    [r[0].word, r[1].word]
+    if @random()
+      [r[0].word, r[1].word]
+    else
+      [r[1].word, r[0].word]
 
 
   ###
-  Our current format is just to take two words and put them together
-  with no spaces
+  Randomly generate either a 0 or 1
+
+  @return [Number] 0 or 1
   ###
-  smash: (nouns) ->
-    nouns.join ''
+  random: ->
+    Math.floor(Math.random() * 2)

@@ -4,24 +4,42 @@ This pulls two words from the dictionary api, smashes them together
 */
 
 var Foxglove,
-  __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+  __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  __hasProp = {}.hasOwnProperty;
 
 Foxglove = (function() {
   function Foxglove() {
     this.success = __bind(this.success, this);
   }
 
-  Foxglove.prototype.generateAPIUrl = function() {
-    var apiKey, limit, maxLength, minLength, url;
-    apiKey = '8f99033d4a9c15332f00c0e62ae083bbf4c9c998a9c928de2';
-    limit = 2;
-    minLength = 2;
-    maxLength = 6;
-    return url = "http://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=" + minLength + "&maxLength=" + maxLength + "&limit=" + limit + "&api_key=" + apiKey;
-  };
+  /*
+  Generates the URL we use to grab data from our dictionary api
+  
+  @return [String] A URL string
+  */
 
-  Foxglove.prototype.generateAndAppend = function() {
-    return this.generate();
+
+  Foxglove.prototype.generateAPIUrl = function() {
+    var k, params, string, v;
+    params = {
+      api_key: '8f99033d4a9c15332f00c0e62ae083bbf4c9c998a9c928de2',
+      limit: 2,
+      minLength: 2,
+      maxLength: 6,
+      hasDictionaryDef: true,
+      includePartOfSpeech: 'noun',
+      minCorpusCount: 0,
+      maxCorpusCount: -1,
+      minDictionaryCount: 1,
+      maxDictionaryCount: -1
+    };
+    string = '';
+    for (k in params) {
+      if (!__hasProp.call(params, k)) continue;
+      v = params[k];
+      string += "&" + k + "=" + v;
+    }
+    return "http://api.wordnik.com/v4/words.json/randomWords?" + string;
   };
 
   /*
@@ -29,7 +47,7 @@ Foxglove = (function() {
   */
 
 
-  Foxglove.prototype.generate = function() {
+  Foxglove.prototype.generateAndAppend = function() {
     return $.ajax({
       url: this.generateAPIUrl(),
       type: 'GET'
@@ -39,28 +57,49 @@ Foxglove = (function() {
   Foxglove.prototype.success = function(r) {
     var nouns;
     nouns = this.pullDataFromResponse(r);
-    this.nouns = this.smash(nouns);
-    return this.appendToDocument(this.nouns);
-  };
-
-  Foxglove.prototype.appendToDocument = function(nouns) {
-    var span;
-    span = $('#results');
-    return span.html(nouns);
-  };
-
-  Foxglove.prototype.pullDataFromResponse = function(r) {
-    return [r[0].word, r[1].word];
+    return this.insertWordsIntoDocument(nouns);
   };
 
   /*
-  Our current format is just to take two words and put them together
-  with no spaces
+  Takes two words and puts them into the document
   */
 
 
-  Foxglove.prototype.smash = function(nouns) {
-    return nouns.join('');
+  Foxglove.prototype.insertWordsIntoDocument = function(nouns) {
+    var body, span1, span2;
+    span1 = $('<span id="first-word">');
+    span2 = $('<span id="second-word">');
+    span1.html(nouns[0]);
+    span2.html(nouns[1]);
+    body = $('body');
+    body.append(span1);
+    return body.append(span2);
+  };
+
+  /*
+  @param [Object] A JSON response object from the dictionary API
+  
+  @return [Array] Two words pulled from the response object
+  */
+
+
+  Foxglove.prototype.pullDataFromResponse = function(r) {
+    if (this.random()) {
+      return [r[0].word, r[1].word];
+    } else {
+      return [r[1].word, r[0].word];
+    }
+  };
+
+  /*
+  Randomly generate either a 0 or 1
+  
+  @return [Number] 0 or 1
+  */
+
+
+  Foxglove.prototype.random = function() {
+    return Math.floor(Math.random() * 2);
   };
 
   return Foxglove;
