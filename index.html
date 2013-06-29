@@ -70,17 +70,19 @@
 </style>
 <body>
 
-<div>
-  <button id='generate'>Generate!</button>
+  <div>
+    <button id='generate'>Generate!</button>
+
     <blockquote>
-      <span id='first-word'>test</span><span id='second-word'>test</span>
+      <span id='word-1'>fox</span><span id='word-2'>glove</span>
     </blockquote>
-</div>
+  </div>
 
   <script>
     var fg = new Foxglove();
+
     $('#generate').click(function(){
-      fg.generateAndAppend();
+      fg.generateAndShowResult();
     });
   </script>
 </body>

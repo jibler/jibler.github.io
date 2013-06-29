@@ -1,5 +1,6 @@
 ###
-This pulls two words from the dictionary api, smashes them together
+This pulls two words from the dictionary api, smashes them together,
+and puts them into our page.
 ###
 class Foxglove
 
@@ -33,13 +34,19 @@ class Foxglove
   ###
   Use the dictionary API to get two nouns and smash them together
   ###
-  generateAndAppend: ->
+  generateAndShowResult: ->
     $.ajax
       url: @generateAPIUrl()
       type: 'GET'
     .done(@success)
 
 
+  ###
+  Process the request's response when we get it, pull out the relevant
+  data and inject it into the HTML
+
+  @param [Object] The response object
+  ###
   success: (r) =>
     nouns = @pullDataFromResponse r
     @insertWordsIntoDocument nouns
@@ -47,17 +54,22 @@ class Foxglove
 
   ###
   Takes two words and puts them into the document
+
+  @param [Array] Two nouns in an array
   ###
   insertWordsIntoDocument: (nouns) ->
-    span1 = $('<span id="first-word">')
-    span2 = $('<span id="second-word">')
+    spans = []
 
-    span1.html nouns[0]
-    span2.html nouns[1]
+    for noun, i in nouns
+      span = $("<span id='word-#{i + 1}'>")
+      span.html noun
+      spans.push span
 
-    body = $('body')
-    body.append span1
-    body.append span2
+    wordContainer = $('blockquote')
+    wordContainer.empty()
+
+    for span in spans
+      wordContainer.append span
 
 
   ###
