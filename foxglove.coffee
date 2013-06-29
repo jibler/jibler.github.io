@@ -1,8 +1,24 @@
 ###
 This pulls two words from the dictionary api, smashes them together,
 and puts them into our page.
+
+DEPENDENCIES: jQuery.
 ###
-class Foxglove
+root = exports ? this
+root.FoxgloveConstructor = (options) ->
+  @initialize.apply this, arguments
+  @
+
+
+class Foxglove extends FoxgloveConstructor
+
+
+  ###
+  @param options [Object] An object of initialization options
+  @option options [String] container (required) A jQuery element in which we'll place our generated words
+  ###
+  initialize: (options) ->
+    @wordContainer = options.container
 
 
   ###
@@ -65,11 +81,10 @@ class Foxglove
       span.html noun
       spans.push span
 
-    wordContainer = $('blockquote')
-    wordContainer.empty()
+    @wordContainer.empty()
 
     for span in spans
-      wordContainer.append span
+      @wordContainer.append span
 
 
   ###

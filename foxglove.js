@@ -2,16 +2,40 @@
 /*
 This pulls two words from the dictionary api, smashes them together,
 and puts them into our page.
+
+DEPENDENCIES: jQuery.
 */
 
-var Foxglove,
+var Foxglove, root, _ref,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-  __hasProp = {}.hasOwnProperty;
+  __hasProp = {}.hasOwnProperty,
+  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-Foxglove = (function() {
+root = typeof exports !== "undefined" && exports !== null ? exports : this;
+
+root.FoxgloveConstructor = function(options) {
+  this.initialize.apply(this, arguments);
+  return this;
+};
+
+Foxglove = (function(_super) {
+  __extends(Foxglove, _super);
+
   function Foxglove() {
     this.success = __bind(this.success, this);
+    _ref = Foxglove.__super__.constructor.apply(this, arguments);
+    return _ref;
   }
+
+  /*
+  @param options [Object] An object of initialization options
+  @option options [String] container (required) A jQuery element in which we'll place our generated words
+  */
+
+
+  Foxglove.prototype.initialize = function(options) {
+    return this.wordContainer = options.container;
+  };
 
   /*
   Generates the URL we use to grab data from our dictionary api
@@ -77,7 +101,7 @@ Foxglove = (function() {
 
 
   Foxglove.prototype.insertWordsIntoDocument = function(nouns) {
-    var i, noun, span, spans, wordContainer, _i, _j, _len, _len1, _results;
+    var i, noun, span, spans, _i, _j, _len, _len1, _results;
     spans = [];
     for (i = _i = 0, _len = nouns.length; _i < _len; i = ++_i) {
       noun = nouns[i];
@@ -85,12 +109,11 @@ Foxglove = (function() {
       span.html(noun);
       spans.push(span);
     }
-    wordContainer = $('blockquote');
-    wordContainer.empty();
+    this.wordContainer.empty();
     _results = [];
     for (_j = 0, _len1 = spans.length; _j < _len1; _j++) {
       span = spans[_j];
-      _results.push(wordContainer.append(span));
+      _results.push(this.wordContainer.append(span));
     }
     return _results;
   };
@@ -123,4 +146,4 @@ Foxglove = (function() {
 
   return Foxglove;
 
-})();
+})(FoxgloveConstructor);

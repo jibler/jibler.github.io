@@ -74,7 +74,9 @@
   </div>
 
   <script>
-    var fg = new Foxglove();
+    var fg = new Foxglove({
+      container: $('blockquote'),
+    });
 
     $('#generate').click(function(){
       fg.generateAndShowResult();
