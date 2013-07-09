@@ -18,9 +18,15 @@ module.exports = (grunt) ->
         src: "foxglove.coffee"
         dest: "foxglove.js"
 
+
   # Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks "grunt-contrib-uglify"
 
   # Default task(s).
   grunt.registerTask "default", ["coffee", "uglify"]
+
+  grunt.registerTask 'deploy', 'Deploy the code to jibler.github.io', ->
+    shell = require 'shelljs'
+    grunt.log.writeln 'Cloning repo'
+    shell.exec './deploy'
