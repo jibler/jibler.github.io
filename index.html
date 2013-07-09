@@ -74,12 +74,16 @@
   </div>
 
   <script>
-    var fg = new Foxglove({
-      container: $('blockquote'),
-    });
+    $(function() {
 
-    $('#generate').click(function(){
-      fg.generateAndShowResult();
+      var fg = new Foxglove({
+        container: $('blockquote'),
+      });
+
+      $('#generate').click(function(){
+        fg.generateAndShowResult();
+      });
+
     });
   </script>
 </body>
