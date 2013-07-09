@@ -28,5 +28,5 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'deploy', 'Deploy the code to jibler.github.io', ->
     shell = require 'shelljs'
-    grunt.log.writeln 'Cloning repo'
+    grunt.log.writeln 'Deploying to jibler.github.io'
     shell.exec './deploy'
