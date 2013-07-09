@@ -1,8 +1,8 @@
 #!/bin/bash
 CURRENT_BRANCH=`git branch | awk '/\* / {print $2}'`
-foo=`git status 2>&1 | tail -1`
+GIT_STATUS=`git status 2>&1 | tail -1`
 
-if [[ "$foo" == "nothing to commit, working directory clean" ]]; then
+if [[ "$GIT_STATUS" == "nothing to commit, working directory clean" ]]; then
   git checkout master
   git checkout dev -- index.html foxglove.min.js .gitignore
   git commit -a -m 'Update build from dev'
