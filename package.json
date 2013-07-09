@@ -1,0 +1,21 @@
+{
+  "name": "foxglove",
+  "version": "0.0.0",
+  "description": "A noun-noun generator website",
+  "main": "foxglove.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.org/wulftone/foxglove-website.git"
+  },
+  "author": "jibler",
+  "license": "MIT",
+  "devDependencies": {
+    "uglify-js": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-coffee": "~0.7.0"
+  }
+}
