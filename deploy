@@ -1,0 +1,9 @@
+#!/bin/bash
+CURRENT_BRANCH=`git branch | awk '/\* / {print $2}'`
+echo $CURRENT_BRANCH
+
+git checkout master
+git checkout dev -- index.html foxglove.min.js .gitignore
+git commit -a -m 'Update build from dev'
+git push origin master
+git checkout $CURRENT_BRANCH
