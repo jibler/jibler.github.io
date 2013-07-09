@@ -1,8 +1,13 @@
 #!/bin/bash
 CURRENT_BRANCH=`git branch | awk '/\* / {print $2}'`
+foo=`git status 2>&1 | tail -1`
 
-git checkout master
-git checkout dev -- index.html foxglove.min.js .gitignore
-git commit -a -m 'Update build from dev'
-git push origin master
-git checkout $CURRENT_BRANCH
+if [[ "$foo" == "nothing to commit, working directory clean" ]]; then
+  git checkout master
+  git checkout dev -- index.html foxglove.min.js .gitignore
+  git commit -a -m 'Update build from dev'
+  git push origin master
+  git checkout $CURRENT_BRANCH
+else
+  echo "You have unsaved changes.  Please commit this branch before continuing."
+fi
