@@ -8,12 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.org/wulftone/foxglove-website.git"
+    "url": "https://github.com/jibler/jibler.github.io.git"
   },
-  "author": "jibler",
+  "private": true,
+  "author": "jibler <jibler5000@gmail.com> (http://jibler.github.io/)",
+  "contributors": [
+    "trevor bortins <enabfluw@gmail.com> (http://www.wulftone.com/)",
+    "trever santora <santora.t@gmail.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
-    "uglify-js": "*",
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-coffee": "~0.7.0"
