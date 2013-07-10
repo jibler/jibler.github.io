@@ -1,78 +1,22 @@
-<head>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-  <script src='foxglove.min.js'></script>
-</head>
-
-<style type="text/css">
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  div {
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-
-  blockquote {
-    background: #f9f9f9;
-    border-left: 10px solid #ccc;
-    padding: 1em 2em;
-    quotes: "\201C""\201D""\2018""\2019";
-    width: 80%;
-    float: right;
-  }
-
-  blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 1em;
-    vertical-align: -.4em;
-  }
-
-  span {
-    font-size: 70px;
-    text-transform: lowercase;
-  }
-
-  #word-1 {
-    color: #444;
-  }
-
-  #word-2 {
-    color: #999;
-  }
-
-  button {
-    background: #f63;
-    border-radius: 90px;
-    border: none;
-    color: #fff;
-    font: bold 20px/1 "helvetica neue", helvetica, arial, sans-serif;
-    padding: 20px;
-    text-align: center;
-    text-shadow: 0 1px 0 #ce4b20;
-    height: 130px;
-    cursor: pointer;
-   }
-
-   button:active {
-    position: relative;
-    top: 4px;
-   }
-
-</style>
-<body>
-
-  <div>
-    <button id='generate'>Generate!</button>
-
-    <blockquote>
-      <span id='word-1'>fox</span><span id='word-2'>glove</span>
-    </blockquote>
-  </div>
-
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Trevor &amp; Trever."/>
+    <!--css-->
+    <link rel='stylesheet' href='style.min.css' media="screen, projection" type="text/css">
+    <title>Jibler &middot; Smash Nouns Together</title>
+  </head>
+  <body>
+    <div>
+      <button id="generate">Generate!</button>
+      <blockquote>
+        <span id="word-1">fox</span><span id="word-2">glove</span>
+      </blockquote>
+    </div>
+    <!--js-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src='foxglove.min.js'></script>
   <script>
     $(function() {
 
@@ -86,4 +30,4 @@
 
     });
   </script>
-</body>
+  </body>
