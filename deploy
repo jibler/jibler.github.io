@@ -4,7 +4,7 @@ GIT_STATUS=`git status 2>&1 | tail -1`
 
 if [[ "$GIT_STATUS" == "nothing to commit, working directory clean" ]]; then
   git checkout master
-  git checkout dev -- index.html foxglove.min.js .gitignore
+  git checkout dev -- index.html foxglove.min.js style.css .gitignore
   git commit -a -m 'Update build from dev'
   git push origin master
   git checkout $CURRENT_BRANCH
