@@ -60,6 +60,10 @@
   transition-timing-function: ease-in;
   }
 
+    button:focus{
+      outline: none;
+    }
+
     button:active {
       transition-property: background-color, color, box-shadow;
       transition-duration: 0.1s;
