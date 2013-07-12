@@ -3,31 +3,33 @@
     padding: 0;
   }
 
-  div {
-    margin: 0 auto;
-    padding: 80px 40px;
+  .wrap {
+    padding:30px 20px;
+    text-align: center;
   }
 
-  blockquote {
-    background:#f9f9f9;
-    border-left:10px solid #ccc;
-    padding:1em 2em;
-    quotes:"\201C""\201D""\2018""\2019";
-    width: 80%;
-    float: right;
+  p {
+    width: 100%;
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 900;
+    border-radius: 140px 140px 0 0;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 20px;
   }
 
-    blockquote:before {
+    p:before {
       color:#ccc;
-      content:open-quote;
-      font-size:4em;
-      line-height:1em;
-      vertical-align:-.4em;
+      font-family: "georgia", times, serif;
+      font-size:6em;
+      line-height:2em;
+      vertical-align:-.0em;
     }
 
   span {
-    font-size: 70px;
+    font-size: 60px;
     text-transform: lowercase;
+
   }
 
   #word-1 {
@@ -36,22 +38,33 @@
 
   #word-2 {
     color: #999;
-  }
+
 
   button {
-    background: #f63;
-    border-radius: 90px;
-    border:none;
-    color: #fff;
-    font: bold 20px/1 "helvetica neue", helvetica, arial, sans-serif;
-    padding: 20px;
-    text-align: center;
-    text-shadow: 0 1px 0 #ce4b20;
-    height: 130px;
-    cursor: pointer;
+  font-family: "Helvetic Neue", sans-serif;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgba(129, 188, 0, 1);
+  border-color: rgba(129, 188, 0, 1);
+  border-width: 3px;
+  border-style: solid solid solid solid;
+  padding: 60px 10px;
+  border-radius: 300px;
+  font-size: 2em;
+  background:#fff;
+  cursor: pointer;
+  transition-property: background-color, color, box-shadow, font-weight;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-in;
   }
 
     button:active {
-      position: relative;
-      top: 4px;
+      transition-property: background-color, color, box-shadow;
+      transition-duration: 0.1s;
+      transition-timing-function: ease-in;
+      background: rgba(129, 188, 0, 1);
+      color: #fff;
+      font-weight: 900;
     }
