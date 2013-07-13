@@ -41,23 +41,23 @@
   }
 
   button {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: 100;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: rgba(129, 188, 0, 1);
-  border-color: rgba(129, 188, 0, 1);
-  border-width: 3px;
-  border-style: solid solid solid solid;
-  padding: 60px 10px;
-  border-radius: 300px;
-  font-size: 2em;
-  background:#fff;
-  cursor: pointer;
-  transition-property: background-color, color, box-shadow, font-weight;
-  transition-duration: 0.1s;
-  transition-timing-function: ease-in;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(129, 188, 0, 1);
+    border-color: rgba(129, 188, 0, 1);
+    border-width: 3px;
+    border-style: solid solid solid solid;
+    padding: 60px 10px;
+    border-radius: 300px;
+    font-size: 2em;
+    background:#fff;
+    cursor: pointer;
+    transition-property: background-color, color, box-shadow, font-weight;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in;
   }
 
     button:focus{
