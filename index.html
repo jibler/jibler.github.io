@@ -17,17 +17,18 @@
     <!--js-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src='foxglove.min.js'></script>
-  <script>
-    $(function() {
+    <script>
+      $(function() {
 
-      var fg = new Foxglove({
-        container: $('p'),
+        var fg = new Foxglove({
+          container: $('p'),
+        });
+
+        $('#generate').click(function(){
+          fg.generateAndShowResult();
+        });
+
       });
-
-      $('#generate').click(function(){
-        fg.generateAndShowResult();
-      });
-
-    });
-  </script>
+    </script>
   </body>
+</html>
