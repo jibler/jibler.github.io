@@ -18,13 +18,22 @@ module.exports = (grunt) ->
         src: "foxglove.coffee"
         dest: "foxglove.js"
 
+    watch:
+      scripts:
+        files: ['foxglove.coffee']
+        tasks: ['coffee', 'uglify']
+      example:
+        files: ['*.js', '*.html', '*.css', 'Gruntfile.coffee']
+        options:
+          livereload: true
 
   # Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks "grunt-contrib-uglify"
+  grunt.loadNpmTasks 'grunt-contrib-watch'
 
   # Default task(s).
-  grunt.registerTask "default", ["coffee", "uglify"]
+  grunt.registerTask "default", ['watch']
 
   grunt.registerTask 'deploy', 'Deploy the code to jibler.github.io', ->
     shell = require 'shelljs'
