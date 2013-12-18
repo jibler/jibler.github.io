@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Trevor &amp; Trever."/>
+    <!--css-->
+    <link rel='stylesheet' href='stylesheets/style.css' media="screen, projection" type="text/css">
+    <title>Jibler &middot; Smash Nouns Together</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="stack-container">
+        <ul class="stack">
+          <li>verb</li>
+          <li class="choice">adjective</li>
+          <li>noun</li>
+        </ul>
+        <ul class="stack">
+          <li>noun</li>
+          <li class="choice">verb</li>
+          <li>adjective</li>
+        </ul>
+        <ul class="stack">
+          <li>adjective</li>
+          <li class="choice">noun</li>
+          <li>verb</li>
+        </ul>
+      </div>
+      <button id="generate">Smash!</button>
+    </div>
+    <!--js-->
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/kinetic-v4.7.4.js"></script>
+    <script src='javascripts/foxglove.js'></script>
+    <script src='javascripts/word_type_wheel.js'></script>
+    <script>
+      $(function() {
+
+        var fg = new Foxglove({
+          container: $('p'),
+        });
+
+        $('#generate').click(function(){
+          fg.generateAndShowResult();
+        });
+
+      });
+    </script>
+
+    <!-- google analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-41019082-2', 'kankergater.com');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
