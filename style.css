@@ -4,32 +4,27 @@
   }
 
   .wrap {
-    padding:30px 20px;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
+  }
+
+  .inner-wrap {
+    margin: 0 auto;
   }
 
   p {
     width: 100%;
     font-family: "helvetica neue", helvetica, arial, sans-serif;
     font-weight: 900;
-    border-radius: 140px 140px 0 0;
     text-align: center;
     text-rendering: optimizeLegibility;
-    margin-bottom: 20px;
+    margin: 30px 0;
   }
-
-    p:before {
-      color:#ccc;
-      font-family: "georgia", times, serif;
-      font-size:6em;
-      line-height:2em;
-      vertical-align:-.0em;
-    }
 
   span {
     font-size: 60px;
     text-transform: lowercase;
-
   }
 
   #word-1 {
@@ -42,7 +37,7 @@
 
   button {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     letter-spacing: 2px;
     text-decoration: none;
     text-transform: uppercase;
@@ -50,7 +45,8 @@
     border-color: rgba(129, 188, 0, 1);
     border-width: 3px;
     border-style: solid solid solid solid;
-    padding: 60px 10px;
+    width: 190px;
+    height: 190px;
     border-radius: 300px;
     font-size: 2em;
     background:#fff;
@@ -71,4 +67,6 @@
       background: rgba(129, 188, 0, 1);
       color: #fff;
       font-weight: 900;
+      width: 194px;
+      height: 190px;
     }
