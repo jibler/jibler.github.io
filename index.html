@@ -4,35 +4,21 @@
     <meta charset="utf-8"/>
     <meta name="author" content="Trevor &amp; Trever."/>
     <!--css-->
-    <link rel='stylesheet' href='stylesheets/style.css' media="screen, projection" type="text/css">
-    <title>Jibler &middot; Smash Nouns Together</title>
+    <link rel='stylesheet' href='style.css' media="screen, projection" type="text/css">
+    <title>Kankergater &middot; Smash Nouns! Tell A Friend.</title>
   </head>
   <body>
     <div class="wrap">
-      <div class="stack-container">
-        <ul class="stack">
-          <li>verb</li>
-          <li class="choice">adjective</li>
-          <li>noun</li>
-        </ul>
-        <ul class="stack">
-          <li>noun</li>
-          <li class="choice">verb</li>
-          <li>adjective</li>
-        </ul>
-        <ul class="stack">
-          <li>adjective</li>
-          <li class="choice">noun</li>
-          <li>verb</li>
-        </ul>
+      <div class="inner-wrap">
+        <p>
+          <span id="word-1">noun</span><span id="word-2">noun</span>
+        </p>
+        <button id="generate">Smash!</button>
       </div>
-      <button id="generate">Smash!</button>
     </div>
     <!--js-->
-    <script src="javascripts/jquery.js"></script>
-    <script src="javascripts/kinetic-v4.7.4.js"></script>
-    <script src='javascripts/foxglove.js'></script>
-    <script src='javascripts/word_type_wheel.js'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src='foxglove.min.js'></script>
     <script>
       $(function() {
 
